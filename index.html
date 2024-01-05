@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/addons/p5.sound.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8" />
+    
+  </head>
+  <body>
+    
+    <!-- HTML -->
+    <framerate id="fps">
+      FPS 0
+    </framerate>
+    
+    <vbox>
+      <main id="main" style="visibility:hidden;">
+        <vbox>
+          <!-- Settings -->
+          <toolbar>
+            Letters <input id="letters" type="text" maxlength="7"> &nbsp;
+            Size <input id="grid-size" type="text" class="grid-size" maxlength="2"> &nbsp;
+            <div class="align-right">
+              <button id="clear-board">Clear</button>
+              <button id="solve">Solve</button>
+            </div>
+          </toolbar>
+
+          <!-- Grid -->
+          <tilegrid id="tiles">
+            <!-- Tiles -->
+          </tilegrid>
+        </vbox>
+        <sidebar id="sidebar">
+          <h1>Words</h1>
+          <button id="play-word">Play Word</button>
+          <div id="plays">
+            <!-- Plays -->
+          </div>
+        </sidebar>
+      </main>
+    </vbox>
+    
+    <!-- Source -->
+    <script src="elems.js"></script>
+    <script src="words.js"></script>
+    <script src="sketch.js"></script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

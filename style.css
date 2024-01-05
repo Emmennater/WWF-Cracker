@@ -1,0 +1,342 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #63a3e6;
+  overflow: hidden;
+  height: 100%;
+}
+
+canvas {
+  display: block;
+}
+
+hbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+vbox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+main {
+  display: flex;
+  
+  background: #cce6ff;
+  border-radius: 4px;
+  box-shadow: 2px 2px 8px #0004;
+}
+
+toolbar {
+  display: flex;
+  width: calc(100% - 16px);
+  padding: 4px 0px 2px;
+  
+  background: transparent;
+  color: #555;
+  font-family: Trebuchet MS, sans-serif;
+  font-size: 16px;
+}
+
+sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 180px;
+  height: 100%;
+  
+  color: #555;
+  font-family: Trebuchet MS, sans-serif;
+  font-size: 16px;
+}
+
+sidebar h1 {
+  text-align: center;
+  margin: 0px 0px;
+  padding: 4px 4px;
+  
+  font-family: Trebuchet MS, sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+sidebar button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  margin: 4px 8px;
+}
+
+play {
+  display: flex;
+  margin-left: 2px;
+  margin-right: 4px;
+  margin-bottom: 4px;
+  padding-left: 4px;
+  padding-right: 6px;
+  
+  background: #0001;
+  color: #888;
+  border: solid 1px #a5b7c9;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-style: italic;
+  font-size: 16px;
+  
+  cursor: pointer;
+  user-select: none;
+}
+
+play:active {
+  background: #00000018;
+}
+
+/* Tiles */
+
+tilegrid {
+  display: grid;
+  width: calc(min(70vw, 70vh));
+  height: calc(min(70vw, 70vh));
+  padding: 4px;
+  gap: 4px;
+  
+  background: transparent;
+}
+
+tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  
+  background: #bad1e8;
+  box-shadow: inset 2px 3px 3px #00000018;
+  font-family: Trebuchet MS, sans-serif;
+  font-size: 1em;
+  border-radius: 4px;
+  
+  cursor: pointer;
+  user-select: none;
+  transition: filter 0.1s;
+}
+
+tile:hover {
+  filter: brightness(0.94);
+}
+
+.dl {
+  background: #4488dd;
+  color: #cce6ff;
+}
+
+.dw {
+  background: #dd5555;
+  color: #cce6ff;
+}
+
+.tl {
+  background: #55aa55;
+  color: #cce6ff;
+}
+
+.tw {
+  background: #dd8844;
+  color: #cce6ff;
+}
+
+tile.hint {
+  /* Overwrite change of background */
+  opacity: 0.7;
+}
+
+tiletxt {
+  position: absolute;
+}
+
+tilepre {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  margin: 0px 0px;
+  padding: 0px 0px;
+  border-radius: 4px;
+  z-index: 2;
+  white-space: pre;
+  
+  background: linear-gradient(rgba(255,165,0,0.8), rgb(228,178,88,0.8));
+  font-weight: 800;
+  font-size: calc(min(3vw, 3vh));
+  text-transform: uppercase;
+  box-shadow: inset 0px -2px 4px #00000030, 0px 1px 2px #00000040;
+  color: #461F13c0;
+}
+
+tileval {
+  position: absolute;
+  z-index: 3;
+}
+
+tileval.hint {
+  opacity: 0.5;
+  color: #461F13;
+}
+
+/* Inputs */
+
+input {
+  margin-left: 6px;
+  padding: 1px 2px;
+  width: 100px;
+  height: 19px;
+  
+  background: #bad1e8;
+  color: #555;
+  font-family: Trebuchet MS, sans-serif;
+  font-size: 16px;
+/*   font-weight: bold; */
+  text-transform: uppercase;
+  border: solid 1px #a5b7c9;
+  border-radius: 2px;
+  box-shadow: inset 2px 3px 3px #00000018;
+}
+
+input:focus {
+  outline: none;
+}
+
+button {
+  text-align: center;
+  margin-right: 4px;
+  width: 60px;
+  height: 20px;
+  
+  background: #e4eef8;
+  color: #555;
+  border: solid 1px #a5b7c9;
+  border-radius: 3px;
+  font-family: Trebuchet MS, sans-serif;
+  font-size: 14px;
+  
+  cursor: pointer;
+  user-select: none;
+}
+
+button:active {
+  background: #dae5f0;
+}
+
+button:disabled {
+  background: #B1C2D3;
+  cursor: not-allowed;
+}
+
+framerate {
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  
+  color: #fffb;
+  font-family: Trebuchet MS, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.placed {
+/*   background: linear-gradient(#F5CD6D, #F8BA5A 5%, #F89C3C 30%, #FAB750 70%, #EAA045); */
+  background: linear-gradient(orange, rgb(228,178,88));
+  font-weight: 800;
+  box-shadow: inset 0px -2px 4px #00000030, 0px 1px 2px #00000040;
+  color: #461F13;
+}
+
+.marked {
+  position: relative;
+}
+
+.marked::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  bottom: 2px;
+  left: 2px;
+  background-color: rgba(255, 0, 0, 0.25);
+  pointer-events: none;
+  z-index: 1;
+  outline: 2px solid rgba(255, 0, 0, 0.6);
+  border-radius: 4px;
+}
+
+.invalid {
+  color: rgb(192,40,69);
+  border: solid 1px #cc2222;
+  background: #ddbbbb;
+}
+
+.align-right {
+  margin-left: auto;
+}
+
+.grid-size {
+  width: 20px;
+}
+
+.selected {
+  color: #444;
+  border-color: #4447;
+}
+
+#plays {
+  max-height: calc(min(65vw, 65vh));
+  margin-right: 4px;
+  overflow: auto;
+}
+
+
+/* Scrollbar */
+/* For WebKit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 5px; /* Set the width of the scrollbar */
+}
+
+/* For the scrollbar track */
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+/* For the scrollbar handle */
+::-webkit-scrollbar-thumb {
+  background-color: #A7BCCF; /* Set the color of the scrollbar handle */
+  border-radius: 5px; /* Optional: Set the border-radius for a rounded handle */
+}
+
+/*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
