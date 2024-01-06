@@ -137,39 +137,13 @@ function initElems() {
   });
   
   // Grid size
-  let sizeElem = document.getElementById("grid-size");
-  sizeElem.value = 15;
-  let previousValue = sizeElem.value;
-  sizeElem.addEventListener("input", () => {
-    let sizetxt = sizeElem.value;
-    
-    // Ignore if empty
-    if (sizetxt == "") {
-      sizeElem.classList.remove("invalid");
-      previousValue = "";
-      return;
-    }
-    
-    // Make sure it is numerical
-    if (!/^\d+$/.test(sizetxt)) {
-      sizeElem.value = previousValue;
-      return;
-    } else {
-      previousValue = sizetxt;
-    }
-    
-    let size = parseInt(sizetxt);
-    if (loadBoard(size)) {
-      sizeElem.classList.remove("invalid");
-    } else {
-      sizeElem.classList.add("invalid");
-    }
+  let soloRadio = document.getElementById("solo");
+  let duoRadio = document.getElementById("duo");
+  soloRadio.addEventListener("click", () => {
+    loadBoard(11);
   });
-  sizeElem.addEventListener("focus", () => {
-    ++busy;
-  });
-  sizeElem.addEventListener("focusout", () => {
-    --busy;
+  duoRadio.addEventListener("click", () => {
+    loadBoard(15);
   });
   
   // Clear button

@@ -14,13 +14,29 @@
       FPS 0
     </framerate>
     
-    <vbox>
+    <img id="banner" src="Assets/banner.png">
+
+    <hbox>
+      <!-- Left Sidebar -->
+      <sidebar id="how-to">
+        <h1>How to Use</h1>
+        <ul>
+          <li>Select solo for solo challenge and duo for normal.</li>
+          <li>Hover over tile and use keyboard to populate the board.</li>
+          <li>Click to toggle to a blank tile.</li>
+        </ul>
+      </sidebar>
+
       <main id="main" style="visibility:hidden;">
+        <!-- Center -->
         <vbox>
-          <!-- Settings -->
           <toolbar>
             Letters <input id="letters" type="text" maxlength="7"> &nbsp;
-            Size <input id="grid-size" type="text" class="grid-size" maxlength="2"> &nbsp;
+            <input id="solo" type="radio" name="board">
+            <label for="solo">Solo</label>
+            <input id="duo" type="radio" name="board" checked>
+            <label for="duo">Duo</label>
+            <!-- Size <input id="grid-size" type="text" class="grid-size" maxlength="2"> &nbsp; -->
             <div class="align-right">
               <button id="clear-board">Clear</button>
               <button id="solve">Solve</button>
@@ -28,19 +44,18 @@
           </toolbar>
 
           <!-- Grid -->
-          <tilegrid id="tiles">
-            <!-- Tiles -->
-          </tilegrid>
+          <tilegrid id="tiles"></tilegrid>
         </vbox>
+
+        <!-- Right Sidebar -->
         <sidebar id="sidebar">
           <h1>Words</h1>
           <button id="play-word">Play Word</button>
-          <div id="plays">
-            <!-- Plays -->
-          </div>
+          <div id="plays"></div>
         </sidebar>
+
       </main>
-    </vbox>
+    </hbox>
     
     <!-- Source -->
     <script src="elems.js"></script>

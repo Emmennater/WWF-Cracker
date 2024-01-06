@@ -1,7 +1,16 @@
+
+/* Turn on color picker using ctrl+, and searching "color decorators" */
+
 html, body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: 0;
   padding: 0;
-  background: #63a3e6;
+
+  background:
+    /* linear-gradient(45deg, #fff4, #fff4 4%, #fff0 4%, #fff0 5%, #fff4 5%, #fff4 6%, #fff0 6%, #fff0 94%, #fff4 94%, #fff4 95%, #fff0 95%, #fff0 96%, #fff4 96%), */
+    linear-gradient(#2d81da /* #63a3e6 */, #256ab3);
   overflow: hidden;
   height: 100%;
 }
@@ -12,25 +21,62 @@ canvas {
 
 hbox {
   display: flex;
-  align-items: center;
   justify-content: center;
-  width: 100%;
 }
 
 vbox {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 100%;
 }
 
 main {
   display: flex;
-  
+  z-index: 1;
+
   background: #cce6ff;
   border-radius: 4px;
   box-shadow: 2px 2px 8px #0004;
+}
+
+/* Peripheral */
+
+#banner {
+  display: block;
+  position: absolute;
+  top: 1vh;
+  left: calc(50% - 25vh);
+  margin-bottom: 0px;
+  width: 50vh;
+}
+
+#how-to {
+  display: flex;
+  width: 220px;
+  margin: 0px 8px;
+  overflow: hidden;
+  box-sizing: border-box;
+
+  background: #cce6ff40;
+  border: solid 2px #fff5;
+  border-radius: 4px;
+  box-shadow: 2px 2px 8px #0002;
+}
+
+#how-to h1 {
+  font-size: 20px;
+  color: white;
+}
+
+#how-to ul {
+  margin: 4px 0px;
+  padding-left: 30px;
+  margin-right: 8px;
+  color: white;
+}
+
+#how-to li {
+  margin-bottom: 5px;
 }
 
 toolbar {
@@ -48,7 +94,6 @@ sidebar {
   display: flex;
   flex-direction: column;
   width: 180px;
-  height: 100%;
   
   color: #555;
   font-family: Trebuchet MS, sans-serif;
@@ -61,7 +106,7 @@ sidebar h1 {
   padding: 4px 4px;
   
   font-family: Trebuchet MS, sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: normal;
 }
 
@@ -70,7 +115,9 @@ sidebar button {
   align-items: center;
   justify-content: center;
   width: auto;
-  margin: 4px 8px;
+  margin-bottom: 8px;
+  margin-left: 2px;
+  margin-right: 6px;
 }
 
 play {
@@ -95,6 +142,18 @@ play {
 
 play:active {
   background: #00000018;
+}
+
+input[type="radio"] {
+  width: 20px;
+  box-shadow: none;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 6px;
 }
 
 /* Tiles */
@@ -123,11 +182,10 @@ tile {
   
   cursor: pointer;
   user-select: none;
-  transition: filter 0.1s;
 }
 
 tile:hover {
-  filter: brightness(0.94);
+  filter: brightness(0.96);
 }
 
 .dl {
@@ -152,7 +210,7 @@ tile:hover {
 
 tile.hint {
   /* Overwrite change of background */
-  opacity: 0.7;
+  opacity: 1.0;
 }
 
 tiletxt {
@@ -171,12 +229,12 @@ tilepre {
   z-index: 2;
   white-space: pre;
   
-  background: linear-gradient(rgba(255,165,0,0.8), rgb(228,178,88,0.8));
+  background: linear-gradient(rgba(255,165,0,0.6), rgb(228,178,88,0.6));
   font-weight: 800;
   font-size: calc(min(3vw, 3vh));
   text-transform: uppercase;
   box-shadow: inset 0px -2px 4px #00000030, 0px 1px 2px #00000040;
-  color: #461F13c0;
+  color: #461F13a0;
 }
 
 tileval {
@@ -197,7 +255,7 @@ input {
   width: 100px;
   height: 19px;
   
-  background: #bad1e8;
+  background-color: #bad1e8;
   color: #555;
   font-family: Trebuchet MS, sans-serif;
   font-size: 16px;
@@ -206,6 +264,15 @@ input {
   border: solid 1px #a5b7c9;
   border-radius: 2px;
   box-shadow: inset 2px 3px 3px #00000018;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: #555;
+    box-shadow: inset 2px 3px 3px #00000018;
 }
 
 input:focus {
