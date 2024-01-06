@@ -1,0 +1,191 @@
+body {
+    align-items: flex-start;
+    margin: 0;
+    padding: 0;
+}
+
+#mobile-content {
+    flex-direction: column;
+    align-items: baseline;
+    justify-content: center;
+    margin: 0px 0px;
+    padding: 0px 0px;
+    gap: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+#banner {
+    position: relative;
+    margin: 4px 0px;
+    padding: 0px 0px;
+    top: auto;
+    left: auto;
+    width: 80vw;
+    max-width: 50vh;
+    align-self: center;
+}
+
+/* Inputs */
+
+toolbar {
+    display: grid;
+    width: auto;
+    padding: 4px;
+    align-items: center;
+    align-self: center;
+    color: white;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+toolbar .group {
+    display: flex;
+    justify-content: space-around;
+    margin: 0px;
+    padding: 0px;
+    gap: 4px;
+}
+
+toolbar .subgroup {
+    display: flex;
+    gap: 4px;
+}
+
+span {
+    margin-right: 4px;
+}
+
+input {
+    width: 100%;
+    margin: 0px 0px;
+    padding: 0px 2px;
+    background-color: #fff3;
+    border: solid 1px white;
+    color: white;
+}
+
+input[type=radio] {
+    padding: 0;
+    margin: 0px 0px;
+    border: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: #fff;
+    box-shadow: inset 2px 3px 3px #00000018;
+}
+
+button {
+    width: 100%;
+    height: 23px;
+    margin: 0px;
+    padding: 0px;
+    border-radius: 3px;
+
+    background: #fff3;
+    border: solid 1px white;
+    color: white;
+    box-shadow: inset 2px 3px 3px #00000018;
+}
+
+button:disabled {
+    color: #fff8;
+    background-color: #fff1;
+    border-color: #fff8;
+}
+
+/* Tiles */
+
+tilegrid {
+    align-self: center;
+    width: auto;
+    height: auto;
+    margin-top: 6px;
+    padding: 2px 2px;
+    gap: 2px;
+
+    background: #cce6ff;
+}
+
+/* Results */
+
+#play-word {
+    align-self: center;
+    width: 30vw;
+    height: 24px;
+    margin: 4px;
+}
+
+#plays {
+    flex: 1;
+    align-self: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: calc(100% - 12px);
+    max-width: calc(min(100vw, 50vh));
+    height: auto;
+    max-height: none;
+    margin: 4px 0px;
+    padding: 4px 2px;
+    gap: 4px;
+}
+
+play {
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: 30px;
+    padding: 0px 6px;
+    
+    background-color: #fff1;
+    color: #fff3;
+    font-size: 22px;
+    font-family: Consolas;
+    font-style: normal;
+    font-weight: 100;
+    border: none;
+    outline: solid 1px #fff5;
+}
+
+.selected {
+    background-color: #fff2;
+    color: white;
+    outline-color: white;
+    outline-width: 2px;
+}
+
+/* How to Use */
+
+#how-to {
+    width: 100%;
+    max-height: 36px;
+    margin: 0;
+    margin-top: auto;
+    padding: 0;
+    border-radius: 0;
+    border: none;
+    border-top: solid 2px #fff5;
+
+    transition: max-height 0s;
+    cursor: pointer;
+}
+
+#how-to li {
+    text-align: left;
+}
+
+#how-to.expanded {
+    max-height: 300px;
+    transition: max-height 1s;
+}
+
+/* For the scrollbar handle */
+::-webkit-scrollbar-thumb {
+    background-color: #fff4; /* Set the color of the scrollbar handle */
+    border-radius: 5px; /* Optional: Set the border-radius for a rounded handle */
+}

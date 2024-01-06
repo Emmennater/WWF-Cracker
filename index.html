@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/addons/p5.sound.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <meta charset="utf-8" />
-    
-  </head>
-  <body>
-    
-    <!-- HTML -->
-    <framerate id="fps">
-      FPS 0
-    </framerate>
-    
+
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/addons/p5.sound.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="Style/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <title>WWF Cracker</title>
+</head>
+
+<body>
+
+  <!-- Desktop -->
+  <vbox id="desktop-content">
+    <!-- Title -->
     <img id="banner" src="Assets/banner.png">
 
     <hbox>
+      <framerate id="fps">
+        FPS 0
+      </framerate>
+
       <!-- Left Sidebar -->
       <sidebar id="how-to">
         <h1>How to Use</h1>
@@ -27,16 +32,15 @@
         </ul>
       </sidebar>
 
-      <main id="main" style="visibility:hidden;">
+      <main id="main">
         <!-- Center -->
         <vbox>
           <toolbar>
             Letters <input id="letters" type="text" maxlength="7"> &nbsp;
             <input id="solo" type="radio" name="board">
             <label for="solo">Solo</label>
-            <input id="duo" type="radio" name="board" checked>
+            <input id="duo" type="radio" name="board">
             <label for="duo">Duo</label>
-            <!-- Size <input id="grid-size" type="text" class="grid-size" maxlength="2"> &nbsp; -->
             <div class="align-right">
               <button id="clear-board">Clear</button>
               <button id="solve">Solve</button>
@@ -56,34 +60,63 @@
 
       </main>
     </hbox>
-    
-    <!-- Source -->
-    <script src="elems.js"></script>
-    <script src="words.js"></script>
-    <script src="sketch.js"></script>
-  </body>
+  </vbox>
+
+  <!-- Mobile -->
+  <vbox id="mobile-content">
+
+    <framerate id="fps" style="display: none;">
+      FPS 0
+    </framerate>
+
+    <!-- Title -->
+    <img id="banner" src="Assets/banner.png">
+
+    <!-- Tools -->
+    <toolbar>
+      <div class="group">
+        <span>Letters</span>
+        <input id="letters" type="text" maxlength="7">
+      </div>
+      <div class="group">
+        <button id="clear-board">Reset</button>
+        <button id="solve">Solve</button>
+      </div>
+      <div class="group">
+        <div class="subgroup">
+          <input id="solo" type="radio" name="board">
+          <label for="solo">Solo</label>
+        </div>
+        <div class="subgroup">
+          <input id="duo" type="radio" name="board">
+          <label for="duo">Duo</label>
+        </div>
+      </div>
+    </toolbar>
+
+    <!-- Board -->
+    <tilegrid id="tiles"></tilegrid>
+
+    <!-- Results -->
+    <button id="play-word">Play Word</button>
+    <div id="plays"></div>
+
+    <!-- Bottom -->
+    <sidebar id="how-to" onclick="toggleExpandHowTo()">
+      <h1>How to Use</h1>
+      <ul id="how-to-contents">
+        <li>Select solo for solo challenge and duo for normal.</li>
+        <li>Hover over tile and use keyboard to populate the board.</li>
+        <li>Click to toggle to a blank tile.</li>
+        <li>To specify a wildcard use '?'</li>
+      </ul>
+    </sidebar>
+  </vbox>
+
+  <!-- Source -->
+  <script src="Source/elems.js"></script>
+  <script src="Source/words.js"></script>
+  <script src="Source/sketch.js"></script>
+</body>
+
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
